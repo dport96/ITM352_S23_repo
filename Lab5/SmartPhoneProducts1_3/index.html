@@ -13,8 +13,8 @@
     <style id='localStyle'></style>
     <script>
         const store_name = "Daniel Noah Zaphod Port";
-        var hits = 0;
-        var spins = 0;
+        var hits = 1;
+        spins = 2;
     </script>
 </head>
 
@@ -41,15 +41,7 @@ s_name.innerHTML = store_name;
         </aside>
 
         <main>
-            <section class="item" onmouseover="
-                this.className='item rotate';
-                spins++;
-                " 
-                
-                onclick="
-                this.className='item';
-                hits++;
-                ">
+            <section class="item" onmouseover="this.className='item rotate';" onclick="this.className='item';">
                 <h2>HTC</h2>
                 <p>$40.00</p>
                 <img id="HTC_img" src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg">
