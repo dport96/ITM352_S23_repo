@@ -13,8 +13,8 @@
     <style id='localStyle'></style>
     <script>
         const store_name = "Daniel Noah Zaphod Port";
-        var hits = 1;
-        spins = 2;
+        var hits = 0;
+        var spins = 0;
     </script>
 </head>
 
@@ -22,6 +22,10 @@
 
     <header>
         <h1><span id="s_name"></span>'s Used Smart Phone Store</h1>
+        <p style="text-align: center; font-weight: bold;">
+            Hits:<span id="hits_span">0</span>
+            Spins:<span id="spins_span">0</span>
+            </p>
         <script>
 s_name.innerHTML = store_name;
     </script>
@@ -41,7 +45,16 @@ s_name.innerHTML = store_name;
         </aside>
 
         <main>
-            <section class="item" onmouseover="this.className='item rotate';" onclick="this.className='item';">
+            <section class="item" 
+            onmouseover="
+                this.className='item rotate';
+                ++spins_span.innerHTML;
+                " 
+            onclick="
+                this.className='item';
+                ++hits_span.innerHTML;
+                "
+            >
                 <h2>HTC</h2>
                 <p>$40.00</p>
                 <img id="HTC_img" src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg">
