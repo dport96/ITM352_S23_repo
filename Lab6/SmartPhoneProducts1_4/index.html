@@ -15,6 +15,7 @@
         const store_name = "Daniel Noah Zaphod Port";
         var hits = 0;
         var spins = 0;
+        var over_half = false;
     </script>
 </head>
 
@@ -25,6 +26,7 @@
         <p style="text-align: center; font-weight: bold;">
             Hits:<span id="hits_span">0</span>
             Spins:<span id="spins_span">0</span>
+            You win:<span id="win_span">pending...</span>
             </p>
             <p>Hit/Spin:<span id="hit_spin_span">0</span></p>
         <script>
@@ -48,14 +50,22 @@ s_name.innerHTML = store_name;
         <main>
             <section class="item" 
             onmouseover="
-                this.className='item rotate';
-                ++spins_span.innerHTML;
-                hit_spin_span.innerHTML = hits_span.innerHTML/spins_span.innerHTML;
+                
+                if(this.className == 'item') {
+                    this.className='item rotate';
+                    spins++;
+                    spins_span.innerHTML = spins;
+                    hit_spin_span.innerHTML = hits/spins;
+                    over_half = over_half || (spins < 2*hits) && (hits < spins);
+                    win_span.innerHTML = over_half;
+                }
                 " 
             onclick="
                 this.className='item';
-                ++hits_span.innerHTML;
-                hit_spin_span.innerHTML = hits_span.innerHTML/spins_span.innerHTML;
+                hits++;
+                hit_spin_span.innerHTML = hits/spins;
+                over_half ||= (spins < 2*hits) && (hits < spins);
+                win_span.innerHTML = over_half;
                 "
             >
                 <h2>HTC</h2>
