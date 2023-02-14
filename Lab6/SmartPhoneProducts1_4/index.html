@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -27,11 +26,11 @@
             Hits:<span id="hits_span">0</span>
             Spins:<span id="spins_span">0</span>
             You win:<span id="win_span">pending...</span>
-            </p>
-            <p>Hit/Spin:<span id="hit_spin_span">0</span></p>
+        </p>
+        <p>Hit/Spin:<span id="hit_spin_span">0</span></p>
         <script>
-s_name.innerHTML = store_name;
-    </script>
+            s_name.innerHTML = store_name;
+        </script>
         </script>
     </header>
     <div>
@@ -48,26 +47,53 @@ s_name.innerHTML = store_name;
         </aside>
 
         <main>
-            <section class="item" 
-            onmouseover="
+            <section class="item" onmouseover="
                 
                 if(this.className == 'item') {
                     this.className='item rotate';
                     spins++;
                     spins_span.innerHTML = spins;
-                    hit_spin_span.innerHTML = hits/spins;
+                   
                     over_half = over_half || (spins < 2*hits) && (hits < spins);
-                    win_span.innerHTML = over_half;
+                    // -- Winning progress depends on hits/spins
+                    hits_spins_ratio = hits/spins;
+                    hit_spin_span.innerHTML = hits_spins_ratio.toFixed(2);
+                    if ( hits_spins_ratio > 0 && hits_spins_ratio < 0.25 ) {
+                        progress = 'On your way!';
+                    }
+                    else if ( hits_spins_ratio >= 0.25 && hits_spins_ratio < 0.5) {
+                            progress = 'Almost there!';
+                    }
+                    else if ( hits_spins_ratio >= 0.5 && hits < spins) {
+                            progress = 'You win!';
+                    }
+                    else {
+                        progress = 'Get going!' ;
+                    }
+                    win_span.innerHTML = progress;
                 }
-                " 
-            onclick="
+                " onclick="
                 this.className='item';
                 hits++;
-                hit_spin_span.innerHTML = hits/spins;
+                hits_span.innerHTML = hits;
                 over_half ||= (spins < 2*hits) && (hits < spins);
-                win_span.innerHTML = over_half;
-                "
-            >
+                // -- Winning progress depends on hits/spins
+                    hits_spins_ratio = hits/spins;
+                    hit_spin_span.innerHTML = hits_spins_ratio.toFixed(2);
+                    if ( hits_spins_ratio > 0 && hits_spins_ratio < 0.25 ) {
+                        progress = 'On your way!';
+                    }
+                    else if ( hits_spins_ratio >= 0.25 && hits_spins_ratio < 0.5) {
+                            progress = 'Almost there!';
+                    }
+                    else if ( hits_spins_ratio >= 0.5 && hits < spins) {
+                            progress = 'You win!';
+                    }
+                    else {
+                        progress = 'Get going!' ;
+                    }
+                    win_span.innerHTML = progress;
+                ">
                 <h2>HTC</h2>
                 <p>$40.00</p>
                 <img id="HTC_img" src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg">
