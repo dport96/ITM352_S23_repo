@@ -1,0 +1,106 @@
+<script src="./products_data.js"></script>
+<script>
+    /*
+    This creates and displays a sales invoice from product sales data 
+    */
+
+    // Product data
+
+    // Product 1
+    
+    var quantity1 = 2;
+   
+
+        // Product 2
+        
+    var quantity2 = 1;
+   
+
+        // Product 3
+        
+    var quantity3 = 1;
+   
+
+        // Product 4
+        
+    var quantity4 = 3;
+   
+
+        // Product 5
+        
+    var quantity5 = 12;
+   
+
+    // Compute extended prices
+    var extended_price1 = quantity1*price1;
+    var extended_price2 = quantity2*price2;
+    var extended_price3 = quantity3*price3;
+    var extended_price4 = quantity4*price4;
+    var extended_price5 = quantity5*price5;
+
+    // Compute sub-total
+    var subtotal = extended_price1 + extended_price2 + extended_price3 + extended_price4 + extended_price5;
+    
+    // Compute tax
+    var tax_rate = 0.0575;
+    var tax = tax_rate*subtotal;
+
+    // Compute grand total
+    var total = subtotal + tax;
+
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<table border="2">
+  <tbody>
+    <tr>
+      <th style="text-align: center;" width="43%">Item</th>
+      <th style="text-align: center;" width="11%">quantity</th>
+      <th style="text-align: center;" width="13%">price</th>
+      <th style="text-align: center;" width="54%">extended price</th>
+    </tr>   
+<script>
+  for(let i = 1; eval(`typeof ${'name'+i} != "undefined"`); i++) { 
+      // product row 
+      document.write(`
+      <tr>
+        <td width="43%">${eval('name' + i)}</td>
+        <td align="center" width="11%">${eval('quantity'+i)}</td>
+        <td width="13%">\$${eval('price'+i)}</td>
+        <td width="54%">\$${eval('extended_price' + i)}</td>
+      </tr>
+      `);
+  }
+
+</script>
+    <tr>
+      <td colspan="4" width="100%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="3" width="67%">Sub-total</td>
+      <td width="54%">$<script>document.write(subtotal);</script></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ 5.75%</span></td>
+      <td width="54%">$<script>document.write(tax.toFixed(2));</script></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
+      <td width="54%"><strong>$<script>document.write(total.toFixed(2));</script></strong></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+
+</html>

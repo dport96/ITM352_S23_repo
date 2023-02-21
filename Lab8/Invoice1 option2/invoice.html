@@ -1,0 +1,132 @@
+<script src="./products_data.js"></script>
+<script>
+    /*
+    This creates and displays a sales invoice from product sales data 
+    */
+
+    // Product data
+
+    // Product 1
+    var item1 = 'Gillette Sensor 3 Razor';
+    var quantity1 = 2;
+    var price1 = 1.23;
+
+        // Product 2
+        var item2 = 'Barbasol Shaving Cream';
+    var quantity2 = 1;
+    var price2 = 2.64;
+
+        // Product 3
+        var item3 = 'Nautica Cologne';
+    var quantity3 = 1;
+    var price3 = 6.17;
+
+        // Product 4
+        var item4 = 'Rubbing Alcohol';
+    var quantity4 = 3;
+    var price4 = 0.98;
+
+        // Product 5
+        var item5 = 'Colgate Classic Toothbrush';
+    var quantity5 = 12;
+    var price5 = 1.89;
+
+    // Compute extended prices
+    var extended_price1 = quantity1*price1;
+    var extended_price2 = quantity2*price2;
+    var extended_price3 = quantity3*price3;
+    var extended_price4 = quantity4*price4;
+    var extended_price5 = quantity5*price5;
+
+    // Compute sub-total
+    var subtotal = extended_price1 + extended_price2 + extended_price3 + extended_price4 + extended_price5;
+    
+    // Compute tax
+    var tax_rate = 0.0575;
+    var tax = tax_rate*subtotal;
+
+    // Compute grand total
+    var total = subtotal + tax;
+
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<table border="2" id="invoiceTable">
+  <tbody>
+    <tr>
+      <th style="text-align: center;" width="43%">Item</th>
+      <th style="text-align: center;" width="11%">quantity</th>
+      <th style="text-align: center;" width="13%">price</th>
+      <th style="text-align: center;" width="54%">extended price</th>
+    </tr>   
+<script>
+       // item row 1
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item1; 
+   row.insertCell().innerHTML = quantity1;
+   row.insertCell().innerHTML = price1.toFixed(2);
+   row.insertCell().innerHTML = extended_price1;
+
+               // item row 2
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item2; 
+   row.insertCell().innerHTML = quantity2;
+   row.insertCell().innerHTML = price2.toFixed(2);
+   row.insertCell().innerHTML = extended_price2;
+
+
+               // item row 3
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item3; 
+   row.insertCell().innerHTML = quantity3;
+   row.insertCell().innerHTML = price3.toFixed(2);
+   row.insertCell().innerHTML = extended_price3;
+
+
+               // item row 4
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item4; 
+   row.insertCell().innerHTML = quantity4;
+   row.insertCell().innerHTML = price4.toFixed(2);
+   row.insertCell().innerHTML = extended_price4;
+ 
+
+               // item row 5
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item5; 
+   row.insertCell().innerHTML = quantity5;
+   row.insertCell().innerHTML = price5.toFixed(2);
+   row.insertCell().innerHTML = extended_price5;
+
+</script>
+    <tr>
+      <td colspan="4" width="100%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="3" width="67%">Sub-total</td>
+      <td width="54%">$<script>document.write(subtotal);</script></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ 5.75%</span></td>
+      <td width="54%">$<script>document.write(tax.toFixed(2));</script></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
+      <td width="54%"><strong>$<script>document.write(total.toFixed(2));</script></strong></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+
+</html>
