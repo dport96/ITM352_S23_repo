@@ -1,4 +1,3 @@
-<script src="./products_data.js"></script>
 <script>
     /*
     This creates and displays a sales invoice from product sales data 
@@ -7,32 +6,40 @@
     // Product data
 
     // Product 1
-    
-    var quantity1 = 2;
-   
+    //var product1["product_name"] = 'Gillette Sensor 3 Razor';
+    // var product1["quantity"] = 2;
+    //var price1 = 1.23;
+
+    var product1 = {
+      "product_name":  'Gillette Sensor 3 Razor',
+      "product_price": 1.23,
+      "quantity": 2
+    };
+    product1.quantity = 0;
+    product1['SKU#'] = 123;
 
         // Product 2
-        
+    var item2 = 'Barbasol Shaving Cream';
     var quantity2 = 1;
-   
+    var price2 = 2.64;
 
         // Product 3
-        
+        var item3 = 'Nautica Cologne';
     var quantity3 = 1;
-   
+    var price3 = 6.17;
 
         // Product 4
-        
+        var item4 = 'Rubbing Alcohol';
     var quantity4 = 3;
-   
+    var price4 = 0.98;
 
         // Product 5
-        
+        var item5 = 'Colgate Classic Toothbrush';
     var quantity5 = 12;
-   
+    var price5 = 1.89;
 
     // Compute extended prices
-    var extended_price1 = quantity1*price1;
+    var extended_price1 = product1["quantity"]*product1["product_price"];
     var extended_price2 = quantity2*price2;
     var extended_price3 = quantity3*price3;
     var extended_price4 = quantity4*price4;
@@ -54,7 +61,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head>   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -62,7 +69,7 @@
 </head>
 
 <body>
-<table border="2">
+<table border="2" id="invoiceTable">
   <tbody>
     <tr>
       <th style="text-align: center;" width="43%">Item</th>
@@ -71,17 +78,43 @@
       <th style="text-align: center;" width="54%">extended price</th>
     </tr>   
 <script>
-  for(let i = 1; eval(`typeof ${'name'+i} != "undefined"`); i++) { 
-      // product row 
-      document.write(`
-      <tr>
-        <td width="43%">${eval('name' + i)}</td>
-        <td align="center" width="11%">${eval('quantity'+i)}</td>
-        <td width="13%">\$${eval('price'+i)}</td>
-        <td width="54%">\$${eval('extended_price' + i)}</td>
-      </tr>
-      `);
-  }
+       // item row 1
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = product1["product_name"]; 
+   row.insertCell().innerHTML = product1["quantity"];
+   row.insertCell().innerHTML = product1["product_price"].toFixed(2);
+   row.insertCell().innerHTML = extended_price1;
+
+               // item row 2
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item2; 
+   row.insertCell().innerHTML = quantity2;
+   row.insertCell().innerHTML = price2.toFixed(2);
+   row.insertCell().innerHTML = extended_price2;
+
+
+               // item row 3
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item3; 
+   row.insertCell().innerHTML = quantity3;
+   row.insertCell().innerHTML = price3.toFixed(2);
+   row.insertCell().innerHTML = extended_price3;
+
+
+               // item row 4
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item4; 
+   row.insertCell().innerHTML = quantity4;
+   row.insertCell().innerHTML = price4.toFixed(2);
+   row.insertCell().innerHTML = extended_price4;
+ 
+
+               // item row 5
+   var row = invoiceTable.insertRow();
+   row.insertCell().innerHTML = item5; 
+   row.insertCell().innerHTML = quantity5;
+   row.insertCell().innerHTML = price5.toFixed(2);
+   row.insertCell().innerHTML = extended_price5;
 
 </script>
     <tr>
