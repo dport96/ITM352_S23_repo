@@ -9,33 +9,47 @@
     //var product1["product_name"] = 'Gillette Sensor 3 Razor';
     // var product1["quantity"] = 2;
     //var price1 = 1.23;
+    var product_quantities = [20000,1,1,-4443,12];
+document.write(`
+<table style="border: 1px solid black;text-align: center;">
+  <tr style="border: 1px solid black;"><th style="border: 1px solid black;">Product #</th><th>Quantity</th></tr>
+  `);
+
+  for(let i in product_quantities) { 
+  document.write(`
+<tr style="border: 1px solid black;"><td style="border: 1px solid black;">${Number(i)+1}</td><td>${product_quantities[i]}</td></tr>
+`);
+  }
+
+document.write(`
+</table>
+`);
 
     var product1 = {
       "product_name":  'Gillette Sensor 3 Razor',
       "product_price": 1.23,
-      "quantity": 2
+      "quantity": product_quantities[0]
     };
-    product1.quantity = 0;
-    product1['SKU#'] = 123;
+   
 
         // Product 2
     var item2 = 'Barbasol Shaving Cream';
-    var quantity2 = 1;
+    var quantity2 = product_quantities[1];
     var price2 = 2.64;
 
         // Product 3
         var item3 = 'Nautica Cologne';
-    var quantity3 = 1;
+        var quantity3 = product_quantities[2];
     var price3 = 6.17;
 
         // Product 4
         var item4 = 'Rubbing Alcohol';
-    var quantity4 = 3;
+        var quantity4 = product_quantities[3];
     var price4 = 0.98;
 
         // Product 5
         var item5 = 'Colgate Classic Toothbrush';
-    var quantity5 = 12;
+        var quantity5 = product_quantities[4];
     var price5 = 1.89;
 
     // Compute extended prices
