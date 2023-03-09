@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="firstname">Dan</span>, <span id="lastname">Port</span>
+<br>
+<input type="button" value="Swap" 
+    onclick="
+    var tmp = firstname.innerHTML;
+    firstname.innerHTML = lastname.innerHTML;
+    lastname.innerHTML = tmp;
+    ">
+</body>
+</html>
